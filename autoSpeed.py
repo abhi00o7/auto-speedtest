@@ -2,7 +2,6 @@ from os import pipe
 import time
 from socket import timeout # it is used to connect a client and a server
 from selenium import webdriver # the holy webdriver to control all all the commands
-from selenium.webdriver.common import alert
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -19,30 +18,25 @@ driver.get("https://fast.com/") #this time its an custom made website to test we
 print("\n\n")
 
 infoLink = driver.find_element_by_id("show-more-details-link")
-time.sleep(30)
+time.sleep(10)
 
 status = infoLink.is_displayed()
 
 print(status)
 
-'''
-link = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div/div/div/div[2]/div[3]/div[1]/a/span[4]')
-link.click()'''
-if(status ==  True):
 
+if(status ==  True):
+    #the speed values be it in 100 or thousands
     speedvalue = WebDriverWait(driver,10).until(
         EC.presence_of_element_located(
         (By.ID, 'speed-value')) 
         )
-    print (speedvalue.text)
-
-
-# info_link = WebDriverWait(driver, 10).until(
-#     EC.presence_of_element_located(
-#     (By.XPATH, html/body/div'//div[2]/div[1]/div[4]/div[1]/a')) 
-#     )
-
-# info_link.click()
-# time.sleep(30)
+    # print (speedvalue.text)
+    #for the speed test units be it in mpbs or kbps acc. to the browser
+    speedunits = WebDriverWait(driver,10).until(
+        EC.presence_of_element_located(
+        (By.ID, 'speed-units')) 
+        )
+    print (speedvalue.text ,speedunits.text)
 
 driver.quit()
