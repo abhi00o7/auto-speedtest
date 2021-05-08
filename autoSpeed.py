@@ -9,12 +9,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 # print("\n\nHello, welcome to the automated speed scanner:\n\n")
-
+''' abhishek kumar(abhi00o7)
+'''
 # this must be targeted to the webdriver installation folder
 PATH = "D:\Installed_Programs\chromedriver.exe"
 driver = webdriver.Chrome(PATH) #storing the webdriver in a variable
 
 url = "https://fast.com/"
+
 driver.get(url) #this time its an custom made website to test web threats.
 print("\n\n")
 
@@ -50,3 +52,4 @@ try:
 
 except :
     print("You DO NOT have a working internet connection.")
+    driver.quit()
