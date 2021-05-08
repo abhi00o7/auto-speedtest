@@ -19,31 +19,34 @@ driver.get(url) #this time its an custom made website to test web threats.
 print("\n\n")
 
 wait = WebDriverWait(driver, 30)
+try:
+    infoLink = wait.until(
+            EC.element_to_be_clickable(
+            (By.XPATH, '/html/body/div/div[2]/div[1]/div[4]/div[1]/a')) 
+            )
 
-infoLink = wait.until(
-        EC.element_to_be_clickable(
-        (By.XPATH, '/html/body/div/div[2]/div[1]/div[4]/div[1]/a')) 
-        )
+    status = infoLink.is_displayed()
 
-status = infoLink.is_displayed()
-
-#CHECK THE STATUS FOR PEACE OF MIND
-# print(status)
+    #CHECK THE STATUS FOR PEACE OF MIND
+    # print(status)
 
 
-if(status ==  True):
-    #the speed values be it in 100 or thousands
-    speedvalue = wait.until(
-        EC.presence_of_element_located(
-        (By.ID, 'speed-value')) 
-        )
+    if(status ==  True):
+        #the speed values be it in 100 or thousands
+        speedvalue = wait.until(
+            EC.presence_of_element_located(
+            (By.ID, 'speed-value')) 
+            )
 
-    #for the speed test units be it in mpbs or kbps acc. to the browser
-    speedunits = wait.until(
-        EC.presence_of_element_located(
-        (By.ID, 'speed-units')) 
-        )
-    print("Your connection speed is :")
-    print (speedvalue.text ,speedunits.text)
+        #for the speed test units be it in mpbs or kbps acc. to the browser
+        speedunits = wait.until(
+            EC.presence_of_element_located(
+            (By.ID, 'speed-units')) 
+            )
+        print("Your connection speed is :")
+        print (speedvalue.text ,speedunits.text)
 
-driver.quit()
+    driver.quit()
+
+except :
+    print("You DO NOT have a working internet connection.")
