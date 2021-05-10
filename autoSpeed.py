@@ -40,7 +40,7 @@ def autospeedtest(url):
                 (By.ID, 'speed-value')) 
                 )
 
-            #for the speed test units be it in mpbs or kbps acc. to the browser
+            #for the speed test units be it in Mpbs or kbps acc. to the browser
             speedunits = wait.until(
                 EC.presence_of_element_located(
                 (By.ID, 'speed-units')) 
@@ -60,6 +60,12 @@ url = "https://fast.com/"
 #     print("test: ", index+1)
 #     autospeedtest(url)
     
-autospeedtest(url)
+def main():
 
-driver.quit()
+    autospeedtest(url)
+    #closing options
+    # driver.close() #to close just the current tab of the browser
+    driver.quit()   #to completely force close the browser
+
+if __name__ == '__main__':
+    main()
