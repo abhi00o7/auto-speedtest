@@ -20,7 +20,7 @@ def autospeedtest(url):
     driver.get(url) #this time its an custom made website to test web threats.
     print("\n\n")
 
-    wait = WebDriverWait(driver, 30)
+    wait = WebDriverWait(driver, 40)
     try:
         infoLink = wait.until(
                 EC.element_to_be_clickable(
