@@ -40,7 +40,7 @@ def autospeedtest(url):
                 (By.ID, 'speed-value')) 
                 )
 
-            #for the speed test units be it in Mpbs or kbps acc. to the browser
+            #for the speed test units be it in Mpbs or Kbps acc. to the browser
             speedunits = wait.until(
                 EC.presence_of_element_located(
                 (By.ID, 'speed-units')) 
